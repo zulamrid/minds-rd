@@ -1,7 +1,7 @@
 import React from 'react';
 import './index.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { SketchPicker } from 'react-color';
+import { PhotoshopPicker, TwitterPicker, SketchPicker, CirclePicker } from 'react-color';
 import { updateDetail } from '../../../store/app/action';
 
 
@@ -28,8 +28,7 @@ export default function Index() {
             id
         }
 
-        setTimeout(() => dispatch(updateDetail(payload)), 1000)
-
+        dispatch(updateDetail(payload))
     }
 
     const popover = {
@@ -43,6 +42,10 @@ export default function Index() {
         bottom: '0px',
         left: '0px',
     }
+
+    const handleChangeComplete = (color, event) => {
+        changeDetail(selected, 'fill', color.hex, buttons[selected].id)
+    };
 
     return (
         <div className="sidebar-right">
@@ -60,6 +63,8 @@ export default function Index() {
                             <div className="form">
                                 <label>y</label>
                                 <input
+                                    type="text"
+                                    // value={buttons[selected].y}
                                     defaultValue={buttons[selected].y}
                                     onChange={e => changeDetail(selected, 'y', e.target.value, buttons[selected].id)}
                                 />
@@ -81,6 +86,45 @@ export default function Index() {
                                 />
                             </div>
                         </div>
+                    </div>
+                    <div className="position">
+                        <div className="form-container">
+                            <div className="form">
+                                <label>x</label>
+                                <input
+                                    defaultValue={buttons[selected].x}
+                                    onChange={e => changeDetail(selected, 'x', e.target.value, buttons[selected].id)}
+                                />
+                            </div>
+                            <div className="form">
+                                <label>y</label>
+                                <input
+                                    type="text"
+                                    // value={buttons[selected].y}
+                                    defaultValue={buttons[selected].y}
+                                    onChange={e => changeDetail(selected, 'y', e.target.value, buttons[selected].id)}
+                                />
+                            </div>
+                        </div>
+                        <div className="form-container">
+                            <div className="form">
+                                <label>Height</label>
+                                <input
+                                    defaultValue={buttons[selected].height}
+                                    onChange={e => changeDetail(selected, 'height', e.target.value, buttons[selected].id)}
+                                />
+                            </div>
+                            <div className="form">
+                                <label>Width</label>
+                                <input
+                                    defaultValue={buttons[selected].width}
+                                    onChange={e => changeDetail(selected, 'width', e.target.value, buttons[selected].id)}
+                                />
+                            </div>
+                        </div>
+                    </div>
+                    <div className="position">
+                        <TwitterPicker onChange={handleChangeComplete} color={buttons[selected].fill}  />
                     </div>
                 </div>
                 : <></> : <></>
