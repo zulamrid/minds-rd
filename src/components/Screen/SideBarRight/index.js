@@ -109,7 +109,7 @@ export default function Index() {
                             min={1}
                             max={10}
                             onChange={e => changeDetail(selected, 'opacity', parseFloat(e.target.value / 10), buttons[selected].id)}
-                            // value={buttons[selected].opacity}  
+                            defaultValue={buttons[selected].opacity}  
                             style={{ width: '100%', marginBottom: 20 }} />
                         <TwitterPicker onChange={handleChangeComplete} color={buttons[selected].fill} />
                     </div>
@@ -159,10 +159,11 @@ export default function Index() {
                             id="1"
                             type="range"
                             name="transparant"
-                            min="0"
-                            max="20"
-                            onChange={e => changeDetail(selected, 'strokeWidth', parseInt(e.target.value), buttons[selected].id)}
-                            // value={buttons[selected].opacity}  
+                            step={1}
+                            min={0}
+                            max={20}
+                            onChange={(e) => changeDetail(selected, 'strokeWidth', parseInt(e.target.value), buttons[selected].id)}
+                            defaultValue={buttons[selected].stokeWidth}  
                             style={{ width: '100%', marginBottom: 20, marginTop: 20 }} />
                         <TwitterPicker onChange={borderColor} color={buttons[selected].stroke} />
                     </div>
