@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 export const addButton = () => {
     return (dispatch) => {
         const payload = {
+            id: uuidv4(),
             x: 10,
             y: 10,
             width: 180,
@@ -12,8 +13,11 @@ export const addButton = () => {
             opacity: 1,
             stroke: 'black',
             strokeWidth: 0,
-            id: uuidv4(),
             cornerRadius: [0, 0, 0, 0],
+            shadowColor: 'black',
+            shadowBlur: 0,
+            shadowOffset: { x: 10, y: 10 },
+            shadowOpacity: 0.5,
         }
         dispatch({
             type: 'ADD_BUTTON',

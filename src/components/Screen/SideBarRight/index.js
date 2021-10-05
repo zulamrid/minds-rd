@@ -63,6 +63,10 @@ export default function Index() {
         changeDetail(selected, 'stroke', color.hex, buttons[selected].id)
     };
 
+    const shadowColor = (color, event) => {
+        changeDetail(selected, 'shadowColor', color.hex, buttons[selected].id)
+    };
+
     return (
         <div className="sidebar-right">
             {buttons.length !== 0 ? selected !== '' ?
@@ -73,7 +77,7 @@ export default function Index() {
                             <div className="form">
                                 <label>x position</label>
                                 <input
-                                    type="text"
+                                    type="number"
                                     name="x"
                                     value={buttons[selected].x}
                                     onChange={(e) => changeDetail(selected, 'x', parseInt(e.target.value), buttons[selected].id)}
@@ -82,7 +86,7 @@ export default function Index() {
                             <div className="form">
                                 <label>y position</label>
                                 <input
-                                    type="text"
+                                    type="number"
                                     name="y"
                                     value={buttons[selected].y}
                                     onChange={e => changeDetail(selected, 'y', parseInt(e.target.value), buttons[selected].id)}
@@ -93,7 +97,7 @@ export default function Index() {
                             <div className="form">
                                 <label>Height</label>
                                 <input
-                                    type="text"
+                                    type="number"
                                     name="height"
                                     value={buttons[selected].height}
                                     onChange={e => changeDetail(selected, 'height', parseInt(e.target.value), buttons[selected].id)}
@@ -102,7 +106,7 @@ export default function Index() {
                             <div className="form">
                                 <label>Width</label>
                                 <input
-                                    type="text"
+                                    type="number"
                                     name="width"
                                     value={buttons[selected].width}
                                     onChange={e => changeDetail(selected, 'width', parseInt(e.target.value), buttons[selected].id)}
@@ -125,13 +129,14 @@ export default function Index() {
                             style={{ width: '100%', marginBottom: 20 }} />
                         <TwitterPicker onChange={handleChangeComplete} color={buttons[selected].fill} />
                     </div>
+                    
                     <div className="position">
                         <h5>Border</h5>
                         <div className="form-container">
                             <div className="form">
                                 <label>Top left</label>
                                 <input
-                                    type="text"
+                                    type="number"
                                     name="topleft"
                                     value={buttons[selected].cornerRadius[0]}
                                     defaultValue={0}
@@ -141,7 +146,7 @@ export default function Index() {
                             <div className="form">
                                 <label>Top Right</label>
                                 <input
-                                    type="text"
+                                    type="number"
                                     value={buttons[selected].cornerRadius[1]}
                                     defaultValue={0}
                                     onChange={e => chnageBorderRadius(selected, 'cornerRadius', parseInt(e.target.value), buttons[selected].id, 1)}
@@ -152,7 +157,7 @@ export default function Index() {
                             <div className="form">
                                 <label>Bottom Right</label>
                                 <input
-                                    type="text"
+                                    type="number"
                                     name="x"
                                     defaultValue={0}
                                     value={buttons[selected].cornerRadius[2]}
@@ -162,13 +167,15 @@ export default function Index() {
                             <div className="form">
                                 <label>Bottom Left</label>
                                 <input
-                                    type="text"
+                                    type="number"
                                     value={buttons[selected].cornerRadius[3]}
                                     defaultValue={0}
                                     onChange={e => chnageBorderRadius(selected, 'cornerRadius', parseInt(e.target.value), buttons[selected].id, 3)}
                                 />
                             </div>
                         </div>
+
+                        <label style={{ marginTop: 20 }}>Border width</label>
                         <input
                             id="1"
                             type="range"
@@ -178,8 +185,36 @@ export default function Index() {
                             max={20}
                             onChange={(e) => changeDetail(selected, 'strokeWidth', parseInt(e.target.value), buttons[selected].id)}
                             defaultValue={buttons[selected].stokeWidth}  
-                            style={{ width: '100%', marginBottom: 20, marginTop: 20 }} />
+                            style={{ width: '100%', marginBottom: 20,  }} />
+                           
                         <TwitterPicker onChange={borderColor} color={buttons[selected].stroke} />
+                    </div>
+
+                    <div className="position">
+                        <h5>Shadow</h5>
+                        <label>Shadow opacity</label>
+                        <input
+                            id="1"
+                            type="range"
+                            name="transparant"
+                            min={1}
+                            max={10}
+                            onChange={e => changeDetail(selected, 'shadowOpacity', parseFloat(e.target.value / 10), buttons[selected].id)}
+                            defaultValue={buttons[selected].shadowOpacity}  
+                            style={{ width: '100%', marginBottom: 20 }} />
+
+                        <label>Shadow blur</label>
+                        <input
+                            id="1"
+                            type="range"
+                            name="transparant"
+                            min={1}
+                            max={50}
+                            onChange={e => changeDetail(selected, 'shadowBlur', parseFloat(e.target.value), buttons[selected].id)}
+                            defaultValue={buttons[selected].shadowBlur}  
+                            style={{ width: '100%', marginBottom: 20 }} />
+
+                            <TwitterPicker onChange={shadowColor} color={buttons[selected].fill} />
                     </div>
                 </div>
                 : <></> : <></>
