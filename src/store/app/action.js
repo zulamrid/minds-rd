@@ -13,7 +13,7 @@ export const addButton = () => {
             stroke: 'black',
             strokeWidth: 0,
             id: uuidv4(),
-            cornerRadius: [10, 10, 10, 10],
+            cornerRadius: [0, 0, 0, 0],
         }
         dispatch({
             type: 'ADD_BUTTON',
@@ -62,6 +62,27 @@ export const updateDetail = (payload) => {
         console.log(payload)
         dispatch({
             type: 'UPDATE_DETAIL',
+            payload
+        })
+    }
+}
+
+export const updateBorderRadius = (v) => {
+    return (dispatch) => {
+        console.log(v)
+        const payload = {
+            id: v.id,
+            key: v.key,
+            index: v.index,
+            value: [
+                v.indexborder === 0 ? v.value : v.datas[0],
+                v.indexborder === 1 ? v.value : v.datas[1],
+                v.indexborder === 2 ? v.value : v.datas[2],
+                v.indexborder === 3 ? v.value : v.datas[3],
+                ]
+        }
+        dispatch({
+            type: 'UPDATE_BORDER_RADIUS',
             payload
         })
     }

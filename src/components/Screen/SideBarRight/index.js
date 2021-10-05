@@ -2,7 +2,7 @@ import React from 'react';
 import './index.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { PhotoshopPicker, TwitterPicker, SketchPicker, CirclePicker } from 'react-color';
-import { updateDetail } from '../../../store/app/action';
+import { updateDetail, updateBorderRadius } from '../../../store/app/action';
 import { parse } from 'uuid';
 
 
@@ -29,6 +29,18 @@ export default function Index() {
             id
         }
         dispatch(updateDetail(payload))
+    }
+
+    const chnageBorderRadius = (index, key, value, id, indexborder) => {
+        const payload = {
+            index,
+            key,
+            value,
+            id,
+            indexborder,
+            datas : buttons[selected].cornerRadius
+        }
+        dispatch(updateBorderRadius(payload))
     }
 
     const popover = {
@@ -120,18 +132,19 @@ export default function Index() {
                                 <label>Top left</label>
                                 <input
                                     type="text"
-                                    name="x"
+                                    name="topleft"
                                     value={buttons[selected].cornerRadius[0]}
-                                    onChange={(e) => changeDetail(selected, 'x', e.target.value, buttons[selected].id)}
+                                    defaultValue={0}
+                                    onChange={(e) => chnageBorderRadius(selected, 'cornerRadius', parseInt(e.target.value), buttons[selected].id, 0)}
                                 />
                             </div>
                             <div className="form">
                                 <label>Top Right</label>
                                 <input
                                     type="text"
-                                    // value={buttons[selected].y}
                                     value={buttons[selected].cornerRadius[1]}
-                                    onChange={e => changeDetail(selected, 'y', e.target.value, buttons[selected].id)}
+                                    defaultValue={0}
+                                    onChange={e => chnageBorderRadius(selected, 'cornerRadius', parseInt(e.target.value), buttons[selected].id, 1)}
                                 />
                             </div>
                         </div>
@@ -141,17 +154,18 @@ export default function Index() {
                                 <input
                                     type="text"
                                     name="x"
+                                    defaultValue={0}
                                     value={buttons[selected].cornerRadius[2]}
-                                    onChange={(e) => changeDetail(selected, 'x', e.target.value, buttons[selected].id)}
+                                    onChange={(e) => chnageBorderRadius(selected, 'cornerRadius', parseInt(e.target.value), buttons[selected].id, 2)}
                                 />
                             </div>
                             <div className="form">
                                 <label>Bottom Left</label>
                                 <input
                                     type="text"
-                                    // value={buttons[selected].y}
                                     value={buttons[selected].cornerRadius[3]}
-                                    onChange={e => changeDetail(selected, 'y', e.target.value, buttons[selected].id)}
+                                    defaultValue={0}
+                                    onChange={e => chnageBorderRadius(selected, 'cornerRadius', parseInt(e.target.value), buttons[selected].id, 3)}
                                 />
                             </div>
                         </div>

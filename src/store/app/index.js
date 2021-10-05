@@ -31,6 +31,13 @@ const reducer = (state = initialState, action) => {
                     v.id === action.payload.id ? { ...v, [action.payload.key]: action.payload.value } : v
                 )
             }
+        case "UPDATE_BORDER_RADIUS":
+            return {
+                ...state,
+                buttons: state.buttons.map((v, index) => 
+                    v.id === action.payload.id ? { ...v, [action.payload.key] : action.payload.value } : v
+                )
+            }
         case "DELETE_BUTTON":
             return {
                 ...state,
