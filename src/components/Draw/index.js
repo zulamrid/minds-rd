@@ -56,7 +56,8 @@ const Rectangle = ({ shapeProps, isSelected, onSelect, onChange }) => {
             height: Math.max(node.height() * scaleY),
           });
         }}
-      />
+      >
+      </Rect>
       {isSelected && (
         <Transformer
           ref={trRef}

@@ -20,9 +20,9 @@ export default function Index() {
             <pre style={{ color: '#fff' }}>
               buttons: {JSON.stringify(buttons, null, 2)}
             </pre>
-            <pre style={{ color: '#fff' }}>
+            {/* <pre style={{ color: '#fff' }}>
               shapes: {JSON.stringify(shapes, null, 2)}
-            </pre>
+            </pre> */}
         </div>
     )
 }

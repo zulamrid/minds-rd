@@ -3,6 +3,7 @@ import './index.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { PhotoshopPicker, TwitterPicker, SketchPicker, CirclePicker } from 'react-color';
 import { updateDetail } from '../../../store/app/action';
+import { parse } from 'uuid';
 
 
 export default function Index() {
@@ -27,7 +28,6 @@ export default function Index() {
             value,
             id
         }
-
         dispatch(updateDetail(payload))
     }
 
@@ -59,21 +59,21 @@ export default function Index() {
                         <h5>Positions</h5>
                         <div className="form-container">
                             <div className="form">
-                                <label>x</label>
+                                <label>x position</label>
                                 <input
                                     type="text"
                                     name="x"
                                     value={buttons[selected].x}
-                                    onChange={(e)=> changeDetail(selected, 'x', e.target.value, buttons[selected].id)}
+                                    onChange={(e) => changeDetail(selected, 'x', parseInt(e.target.value), buttons[selected].id)}
                                 />
                             </div>
                             <div className="form">
-                                <label>y</label>
+                                <label>y position</label>
                                 <input
                                     type="text"
-                                    // value={buttons[selected].y}
-                                    defaultValue={buttons[selected].y}
-                                    onChange={e => changeDetail(selected, 'y', e.target.value, buttons[selected].id)}
+                                    name="y"
+                                    value={buttons[selected].y}
+                                    onChange={e => changeDetail(selected, 'y', parseInt(e.target.value), buttons[selected].id)}
                                 />
                             </div>
                         </div>
@@ -81,52 +81,96 @@ export default function Index() {
                             <div className="form">
                                 <label>Height</label>
                                 <input
-                                    defaultValue={buttons[selected].height}
-                                    onChange={e => changeDetail(selected, 'height', e.target.value, buttons[selected].id)}
+                                    type="text"
+                                    name="height"
+                                    value={buttons[selected].height}
+                                    onChange={e => changeDetail(selected, 'height', parseInt(e.target.value), buttons[selected].id)}
                                 />
                             </div>
                             <div className="form">
                                 <label>Width</label>
                                 <input
-                                    defaultValue={buttons[selected].width}
-                                    onChange={e => changeDetail(selected, 'width', e.target.value, buttons[selected].id)}
+                                    type="text"
+                                    name="width"
+                                    value={buttons[selected].width}
+                                    onChange={e => changeDetail(selected, 'width', parseInt(e.target.value), buttons[selected].id)}
                                 />
                             </div>
                         </div>
                     </div>
 
-                   
+
                     <div className="position">
-                    <h5>Fill & Opacity</h5>
-                        <input 
-                            id="1" 
-                            type="range" 
-                            name="transparant" 
-                            min={1} 
-                            max={10} 
-                            onChange={e => changeDetail(selected, 'opacity', parseFloat(e.target.value/10), buttons[selected].id)}
+                        <h5>Fill & Opacity</h5>
+                        <input
+                            id="1"
+                            type="range"
+                            name="transparant"
+                            min={1}
+                            max={10}
+                            onChange={e => changeDetail(selected, 'opacity', parseFloat(e.target.value / 10), buttons[selected].id)}
                             // value={buttons[selected].opacity}  
-                            style={{ width:'100%', marginBottom:20 }} />
-                            <TwitterPicker onChange={handleChangeComplete} color={buttons[selected].fill} />
+                            style={{ width: '100%', marginBottom: 20 }} />
+                        <TwitterPicker onChange={handleChangeComplete} color={buttons[selected].fill} />
                     </div>
                     <div className="position">
-                    <h5>Border</h5>
-                        <input 
-                            id="1" 
-                            type="range" 
-                            name="transparant" 
+                        <h5>Border</h5>
+                        <div className="form-container">
+                            <div className="form">
+                                <label>Top left</label>
+                                <input
+                                    type="text"
+                                    name="x"
+                                    value={buttons[selected].cornerRadius[0]}
+                                    onChange={(e) => changeDetail(selected, 'x', e.target.value, buttons[selected].id)}
+                                />
+                            </div>
+                            <div className="form">
+                                <label>Top Right</label>
+                                <input
+                                    type="text"
+                                    // value={buttons[selected].y}
+                                    value={buttons[selected].cornerRadius[1]}
+                                    onChange={e => changeDetail(selected, 'y', e.target.value, buttons[selected].id)}
+                                />
+                            </div>
+                        </div>
+                        <div className="form-container">
+                            <div className="form">
+                                <label>Bottom Right</label>
+                                <input
+                                    type="text"
+                                    name="x"
+                                    value={buttons[selected].cornerRadius[2]}
+                                    onChange={(e) => changeDetail(selected, 'x', e.target.value, buttons[selected].id)}
+                                />
+                            </div>
+                            <div className="form">
+                                <label>Bottom Left</label>
+                                <input
+                                    type="text"
+                                    // value={buttons[selected].y}
+                                    value={buttons[selected].cornerRadius[3]}
+                                    onChange={e => changeDetail(selected, 'y', e.target.value, buttons[selected].id)}
+                                />
+                            </div>
+                        </div>
+                        <input
+                            id="1"
+                            type="range"
+                            name="transparant"
                             min="0"
-                            max="20" 
+                            max="20"
                             onChange={e => changeDetail(selected, 'strokeWidth', parseInt(e.target.value), buttons[selected].id)}
                             // value={buttons[selected].opacity}  
-                            style={{ width:'100%', marginBottom:20 }} />
-                            <TwitterPicker onChange={borderColor} color={buttons[selected].stroke} />
+                            style={{ width: '100%', marginBottom: 20, marginTop: 20 }} />
+                        <TwitterPicker onChange={borderColor} color={buttons[selected].stroke} />
                     </div>
-                    </div>
-                    : <></> : <></>
+                </div>
+                : <></> : <></>
 
             }
-                  
-                </div>
+
+        </div>
     )
 }

@@ -7,12 +7,13 @@ export const addButton = () => {
             y: 10,
             width: 180,
             height: 80,
-            label: 'label1',
+            name: 'label1',
             fill: '#0984e3',
             opacity: 1,
             stroke: 'black',
             strokeWidth: 0,
             id: uuidv4(),
+            cornerRadius: [10, 10, 10, 10],
         }
         dispatch({
             type: 'ADD_BUTTON',

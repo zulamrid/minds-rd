@@ -35,6 +35,14 @@ function App() {
     dispatch(addShape())
   }
 
+  const _moveUp = () => {
+    // buttons[selectedButton].moveUp()
+  }
+
+  const _moveDown = () => {
+    // buttons[selectedButton].moveUp()
+  }
+
   const _deleteItem = () => {
     const payload = {
       item,
@@ -61,6 +69,20 @@ function App() {
           }}>
             {item === '' ? <></> :
               <>
+               <div
+                  className="button"
+                  style={{ width: '15%', margin: 3, backgroundColor: '#0984e3' }}
+                  onClick={_moveUp}
+                >
+                  Move Up
+                </div>
+                <div
+                  className="button"
+                  style={{ width: '15%', margin: 3, backgroundColor: '#0984e3' }}
+                  onClick={_moveDown}
+                >
+                  Move Down
+                </div>
                 <div
                   className="button"
                   style={{ width: '15%', margin: 3, backgroundColor: '#0984e3' }}
@@ -101,9 +123,9 @@ function App() {
           <div className="button" onClick={_addButtons}>
             Add button
           </div>
-          <div className="button" onClick={_addShapes}>
+          {/* <div className="button" onClick={_addShapes}>
             Add Shape
-          </div>
+          </div> */}
           <div className="button">
             Add Text
           </div>
