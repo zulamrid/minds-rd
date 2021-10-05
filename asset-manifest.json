@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/minds-rd/static/css/main.dfd6676d.chunk.css",
+    "main.js": "/minds-rd/static/js/main.e3a4b4b4.chunk.js",
+    "main.js.map": "/minds-rd/static/js/main.e3a4b4b4.chunk.js.map",
+    "runtime-main.js": "/minds-rd/static/js/runtime-main.ad7c657c.js",
+    "runtime-main.js.map": "/minds-rd/static/js/runtime-main.ad7c657c.js.map",
+    "static/js/2.bd08e2e3.chunk.js": "/minds-rd/static/js/2.bd08e2e3.chunk.js",
+    "static/js/2.bd08e2e3.chunk.js.map": "/minds-rd/static/js/2.bd08e2e3.chunk.js.map",
+    "static/js/3.36a4ad8f.chunk.js": "/minds-rd/static/js/3.36a4ad8f.chunk.js",
+    "static/js/3.36a4ad8f.chunk.js.map": "/minds-rd/static/js/3.36a4ad8f.chunk.js.map",
+    "index.html": "/minds-rd/index.html",
+    "static/css/main.dfd6676d.chunk.css.map": "/minds-rd/static/css/main.dfd6676d.chunk.css.map",
+    "static/js/2.bd08e2e3.chunk.js.LICENSE.txt": "/minds-rd/static/js/2.bd08e2e3.chunk.js.LICENSE.txt",
+    "static/media/logo.6ce24c58.svg": "/minds-rd/static/media/logo.6ce24c58.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ad7c657c.js",
+    "static/js/2.bd08e2e3.chunk.js",
+    "static/css/main.dfd6676d.chunk.css",
+    "static/js/main.e3a4b4b4.chunk.js"
+  ]
+}
