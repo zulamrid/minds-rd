@@ -104,6 +104,12 @@ function App() {
           <div className="button" onClick={_addShapes}>
             Add Shape
           </div>
+          <div className="button">
+            Add Text
+          </div>
+          <div className="button">
+            Add Image / Logo
+          </div>
         </div>
       </div>
       <div className="sidebar-container">
