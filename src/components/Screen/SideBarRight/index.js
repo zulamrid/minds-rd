@@ -47,64 +47,101 @@ export default function Index() {
     return (
         <div className="sidebar-right">
             {buttons.length !== 0 ? selected !== '' ?
-                <table>
-                    <tr>
-                        <td>x</td>
-                        <td> y </td>
-
-                    </tr>
-                    <tr>
-                        <td>
-                            <input
-                                defaultValue={buttons[selected].y}
-                                onChange={e => changeDetail(selected, 'y', e.target.value, buttons[selected].id)}
-                            />
-                        </td>
-                        <td>
-                            <input
-                                type="text"
-                                name="any2"
-                                defaultValue={buttons[selected].x}
-                                onChange={e => changeDetail(selected, 'x', e.target.value, buttons[selected].id)}
-                            /></td>
-                    </tr>
-                    <tr>
-                        <td>Width</td>
-                        <td>Height</td>
-                        
-                    </tr>
-                    <tr>
-                        <td>
-                            <input
-                                defaultValue={buttons[selected].height}
-                                onChange={e => changeDetail(selected, 'height', parseInt(e.target.value), buttons[selected].id)}
-                            />
-                        </td>
-                        <td>
-                            <input
-                                defaultValue={buttons[selected].width}
-                                onChange={e => changeDetail(selected, 'width', parseInt(e.target.value), buttons[selected].id)}
-                            />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Color</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input
-                                defaultValue={buttons[selected].fill}
-                                onChange={e => changeDetail(selected, 'fill', e.target.value, buttons[selected].id)}
-                            />
-                        </td>
-                    </tr>
-                </table>
-                :
-                <></>
-                :
-                <></>
+                <div className="sidebar-right-container">
+                    <div className="position">
+                        <div className="form-container">
+                            <div className="form">
+                                <label>x</label>
+                                <input
+                                    defaultValue={buttons[selected].x}
+                                    onChange={e => changeDetail(selected, 'x', e.target.value, buttons[selected].id)}
+                                />
+                            </div>
+                            <div className="form">
+                                <label>y</label>
+                                <input
+                                    defaultValue={buttons[selected].y}
+                                    onChange={e => changeDetail(selected, 'y', e.target.value, buttons[selected].id)}
+                                />
+                            </div>
+                        </div>
+                        <div className="form-container">
+                            <div className="form">
+                                <label>Height</label>
+                                <input
+                                    defaultValue={buttons[selected].height}
+                                    onChange={e => changeDetail(selected, 'height', e.target.value, buttons[selected].id)}
+                                />
+                            </div>
+                            <div className="form">
+                                <label>Width</label>
+                                <input
+                                    defaultValue={buttons[selected].width}
+                                    onChange={e => changeDetail(selected, 'width', e.target.value, buttons[selected].id)}
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                : <></> : <></>
 
             }
+            {/* // <table>
+                //     <tr>
+                //         <td>x</td>
+                //         <td> y </td>
+
+                //     </tr>
+                //     <tr>
+                //         <td>
+                //             <input
+                //                 defaultValue={buttons[selected].y}
+                //                 onChange={e => changeDetail(selected, 'y', e.target.value, buttons[selected].id)}
+                //             />
+                //         </td>
+                //         <td>
+                //             <input
+                //                 type="text"
+                //                 name="any2"
+                //                 defaultValue={buttons[selected].x}
+                //                 onChange={e => changeDetail(selected, 'x', e.target.value, buttons[selected].id)}
+                //             /></td>
+                //     </tr>
+                //     <tr>
+                //         <td>Width</td>
+                //         <td>Height</td>
+
+                //     </tr>
+                //     <tr>
+                //         <td>
+                //             <input
+                //                 defaultValue={buttons[selected].height}
+                //                 onChange={e => changeDetail(selected, 'height', parseInt(e.target.value), buttons[selected].id)}
+                //             />
+                //         </td>
+                //         <td>
+                //             <input
+                //                 defaultValue={buttons[selected].width}
+                //                 onChange={e => changeDetail(selected, 'width', parseInt(e.target.value), buttons[selected].id)}
+                //             />
+                //         </td>
+                //     </tr>
+                //     <tr>
+                //         <td>Color</td>
+                //     </tr>
+                //     <tr>
+                //         <td>
+                //             <input
+                //                 defaultValue={buttons[selected].fill}
+                //                 onChange={e => changeDetail(selected, 'fill', e.target.value, buttons[selected].id)}
+                //             />
+                //         </td>
+                //     </tr>
+                // </table>
+                // :
+                // <></>
+                // :
+                // <></> */}
         </div>
     )
 }
