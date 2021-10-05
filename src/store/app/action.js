@@ -9,6 +9,9 @@ export const addButton = () => {
             height: 80,
             label: 'label1',
             fill: '#0984e3',
+            opacity: 1,
+            stroke: 'black',
+            strokeWidth: 0,
             id: uuidv4(),
         }
         dispatch({
@@ -78,10 +81,10 @@ export const addShape = () => {
             fill: 'red',
             stroke: 'black',
             strokeWidth: 4,
-            shadowColor: 'black',
-            shadowBlur: 10,
-            shadowOffset: { x: 10, y: 10 },
-            shadowOpacity: 0.5,
+            // shadowColor: 'black',
+            // shadowBlur: 10,
+            // shadowOffset: { x: 10, y: 10 },
+            // shadowOpacity: 0.5,
             id: uuidv4(),
         }
         dispatch({
