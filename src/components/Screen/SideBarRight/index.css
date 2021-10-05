@@ -1,0 +1,10 @@
+.sidebar-right{
+    position: absolute;
+    height: 100vh;
+    background-color: #fff;
+    right: -380px;
+    width: 20vw;
+    transition: .2s linear;
+    padding: 10px
+}
+
