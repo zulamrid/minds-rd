@@ -170,7 +170,7 @@ export default function Index(props) {
   }
 
   const hideSidebar = () => {
-    document.querySelector('.sidebar-right').style.right = '-350px'
+    document.querySelector('.sidebar-right').style.right = '-400px'
   }
 
   return (
