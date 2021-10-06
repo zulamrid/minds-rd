@@ -5,8 +5,10 @@ import SidebarLeft from './SideBarLeft';
 import SidebarRight from './SideBarRight';
 import { useDispatch, useSelector } from 'react-redux';
 import { addButton, addShape, setImage, deleteItem } from '../../store/app/action';
+import { useHistory } from "react-router-dom";
 
 function App() {
+  let history = useHistory();
   const dispatch = useDispatch()
   const [urlImage, setUrlImage] = React.useState('')
 
@@ -53,12 +55,32 @@ function App() {
     dispatch(deleteItem(payload))
   }
 
+  const _toPreview = () => {
+    history.push("/preview")
+    // const win = window.open("/preview", "_blank");
+    // win.focus();
+  }
+
   return (
     <div className="App">
       <div className="sidebar-container">
         <SidebarLeft />
       </div>
       <div className="main">
+      <div style={{
+            display: 'flex',
+            width: '100%',
+            marginTop: 20,
+            justifyContent: 'flex-end'
+          }}>
+        <div
+          className="button"
+          style={{ width: '15%', margin: 3, backgroundColor: '#0984e3' }}
+          onClick={_toPreview}
+        >
+          Preview
+        </div>
+        </div>
         <Draw />
         <div>
           <div style={{
@@ -69,7 +91,7 @@ function App() {
           }}>
             {item === '' ? <></> :
               <>
-               <div
+                <div
                   className="button"
                   style={{ width: '15%', margin: 3, backgroundColor: '#0984e3' }}
                   onClick={_moveUp}

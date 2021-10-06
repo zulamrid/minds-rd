@@ -3,7 +3,7 @@ import './App.css';
 import { Provider } from 'react-redux';
 
 import Store from './store/store';
-import RootApp from './components/Screen';
+import RootApp from './components/Route';
 
 function App() {
     return (

@@ -4,6 +4,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import { PhotoshopPicker, TwitterPicker, SketchPicker, CirclePicker } from 'react-color';
 import { updateDetail, updateBorderRadius } from '../../../store/app/action';
 import { parse } from 'uuid';
+import {
+    Route,
+    NavLink,
+    HashRouter
+} from "react-router-dom";
 
 
 export default function Index() {
